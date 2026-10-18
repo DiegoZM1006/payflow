@@ -9,6 +9,9 @@ jobs:
   backend:
     name: Backend (Django)
     runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: ci-insecure-secret-key-not-used-in-production
+      DEBUG: "False"
     defaults:
       run:
         working-directory: backend
