@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.sqlite3
+staticfiles/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+
+# Environment (secrets)
+.env
+.env.*
+!.env.example
+
+# System
+.DS_Store
+.vscode/
+.idea/
