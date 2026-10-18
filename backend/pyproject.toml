@@ -1,0 +1,20 @@
+[tool.ruff]
+target-version = "py313"
+extend-exclude = ["migrations"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes: unused imports, undefined names
+    "I",   # isort: import ordering
+    "B",   # flake8-bugbear: common bug patterns
+    "UP",  # pyupgrade: modern Python syntax
+    "DJ",  # flake8-django: Django-specific best practices
+]
+ignore = [
+    "E501",  # line length is handled by the formatter
+]
+
+[tool.ruff.format]
+quote-style = "double"
