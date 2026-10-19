@@ -19,7 +19,14 @@ class MerchantAdmin(admin.ModelAdmin):
 
 @admin.register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ["transaction_id", "created_at", "customer", "merchant", "amount", "status"]
+    list_display = [
+        "transaction_id",
+        "created_at",
+        "customer",
+        "merchant",
+        "amount",
+        "status",
+    ]
     list_filter = ["status", "channel", "merchant__category"]
     search_fields = ["transaction_id", "customer__name", "merchant__name"]
     list_select_related = ["customer", "merchant"]
