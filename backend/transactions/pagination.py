@@ -17,3 +17,12 @@ class StandardPagination(PageNumberPagination):
                 "results": data,
             }
         )
+
+    def get_paginated_response_schema(self, schema):
+        response_schema = super().get_paginated_response_schema(schema)
+        response_schema["properties"]["total_pages"] = {
+            "type": "integer",
+            "example": 250,
+        }
+        response_schema["required"].append("total_pages")
+        return response_schema

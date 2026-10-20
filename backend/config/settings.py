@@ -131,6 +131,9 @@ CORS_ALLOWED_ORIGINS = env("CORS_ALLOWED_ORIGINS")
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "transactions.pagination.StandardPagination",
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    # Read-only public API for an internal tool: no authentication in scope
+    "DEFAULT_AUTHENTICATION_CLASSES": [],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
 }
 
 # OpenAPI documentation
