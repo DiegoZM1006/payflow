@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_filters",
     "corsheaders",
+    "drf_spectacular",
     # Local apps
     "transactions",
 ]
