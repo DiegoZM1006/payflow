@@ -1,7 +1,19 @@
 from django.db import models
 from django.db.models import Q
+from django.utils import timezone
 
-from .choices import Category, Channel, City, CustomerType, Status
+from .choices import (
+    WEEKDAY_NAMES,
+    AmountRange,
+    Category,
+    Channel,
+    City,
+    CustomerType,
+    Status,
+)
+
+LOW_AMOUNT_LIMIT = 100_000
+HIGH_AMOUNT_LIMIT = 1_000_000
 
 
 class Customer(models.Model):
@@ -67,3 +79,15 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.transaction_id
+
+    @property
+    def amount_range(self):
+        if self.amount < LOW_AMOUNT_LIMIT:
+            return AmountRange.LOW
+        if self.amount <= HIGH_AMOUNT_LIMIT:
+            return AmountRange.MEDIUM
+        return AmountRange.HIGH
+
+    @property
+    def weekday(self):
+        return WEEKDAY_NAMES[timezone.localtime(self.created_at).weekday()]
