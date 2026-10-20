@@ -44,3 +44,20 @@ class Status(models.TextChoices):
     REJECTED = "Rechazada", "Rechazada"
     PENDING = "Pendiente", "Pendiente"
     REVERSED = "Reversada", "Reversada"
+
+
+class AmountRange(models.TextChoices):
+    LOW = "Bajo", "Bajo"
+    MEDIUM = "Medio", "Medio"
+    HIGH = "Alto", "Alto"
+
+
+WEEKDAY_NAMES = (
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo",
+)
