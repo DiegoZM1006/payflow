@@ -126,3 +126,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CORS
 CORS_ALLOWED_ORIGINS = env("CORS_ALLOWED_ORIGINS")
+
+# Django REST Framework
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "transactions.pagination.StandardPagination",
+}
