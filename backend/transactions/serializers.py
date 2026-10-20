@@ -34,3 +34,42 @@ class TransactionSerializer(serializers.ModelSerializer):
             "status",
             "weekday",
         ]
+
+
+class SummarySerializer(serializers.Serializer):
+    approved_amount = serializers.IntegerField()
+    total_transactions = serializers.IntegerField()
+    average_ticket = serializers.IntegerField()
+    approval_rate = serializers.FloatField()
+    unique_customers = serializers.IntegerField()
+
+
+class MonthlyMetricSerializer(serializers.Serializer):
+    month = serializers.CharField(help_text="Month in YYYY-MM format.")
+    approved_amount = serializers.IntegerField()
+    total_transactions = serializers.IntegerField()
+    approval_rate = serializers.FloatField()
+
+
+class CategoryMetricSerializer(serializers.Serializer):
+    category = serializers.CharField()
+    total_transactions = serializers.IntegerField()
+    approved_amount = serializers.IntegerField()
+    share = serializers.FloatField(help_text="Share of the total approved amount (%).")
+
+
+class ChannelMetricSerializer(serializers.Serializer):
+    channel = serializers.CharField()
+    total_transactions = serializers.IntegerField()
+    by_status = serializers.DictField(
+        child=serializers.IntegerField(),
+        help_text="Number of transactions per status.",
+    )
+
+
+class TopCustomerSerializer(serializers.Serializer):
+    customer_id = serializers.CharField()
+    customer_name = serializers.CharField()
+    approved_amount = serializers.IntegerField()
+    total_transactions = serializers.IntegerField()
+    last_purchase_at = serializers.DateTimeField(allow_null=True)
