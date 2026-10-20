@@ -1,3 +1,7 @@
+import csv
+
+from django.http import StreamingHttpResponse
+from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, extend_schema
@@ -27,6 +31,23 @@ DATE_RANGE_PARAMETERS = [
 ]
 
 
+class Echo:
+    """File-like object that returns what it is given, for streaming CSV rows."""
+
+    def write(self, value):
+        return value
+
+
+def stream_csv(queryset):
+    fields = TransactionSerializer.Meta.fields
+    writer = csv.writer(Echo())
+    # BOM so Excel detects UTF-8 and shows accents correctly
+    yield "\ufeff" + writer.writerow(fields)
+    for transaction in queryset.iterator(chunk_size=1000):
+        row = TransactionSerializer(transaction).data
+        yield writer.writerow([row[field] for field in fields])
+
+
 class TransactionViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Transaction.objects.select_related("customer", "merchant")
     serializer_class = TransactionSerializer
@@ -35,6 +56,21 @@ class TransactionViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_class = TransactionFilter
     search_fields = ["transaction_id", "customer__name", "merchant__name"]
     ordering_fields = ["created_at", "amount"]
+
+    @extend_schema(
+        responses={(200, "text/csv"): OpenApiTypes.STR},
+        filters=True,
+        description="Export the filtered transactions as CSV (no pagination).",
+    )
+    @action(detail=False)
+    def export(self, request):
+        queryset = self.filter_queryset(self.get_queryset())
+        filename = f"transactions_{timezone.localdate():%Y%m%d}.csv"
+        response = StreamingHttpResponse(
+            stream_csv(queryset), content_type="text/csv; charset=utf-8"
+        )
+        response["Content-Disposition"] = f'attachment; filename="{filename}"'
+        return response
 
 
 class MetricsViewSet(viewsets.ViewSet):
