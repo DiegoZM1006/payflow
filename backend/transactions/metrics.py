@@ -85,9 +85,7 @@ def get_by_channel(queryset):
         {
             "channel": row["channel"],
             "total_transactions": row["total_transactions"],
-            "by_status": {
-                status.value: row[status.name.lower()] for status in Status
-            },
+            "by_status": {status.value: row[status.name.lower()] for status in Status},
         }
         for row in rows
     ]
