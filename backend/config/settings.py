@@ -130,4 +130,13 @@ CORS_ALLOWED_ORIGINS = env("CORS_ALLOWED_ORIGINS")
 # Django REST Framework
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "transactions.pagination.StandardPagination",
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+# OpenAPI documentation
+SPECTACULAR_SETTINGS = {
+    "TITLE": "PayFlow API",
+    "DESCRIPTION": "Transactions and dashboard metrics for PayFlow's commercial team.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
