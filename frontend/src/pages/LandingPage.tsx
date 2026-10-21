@@ -1,3 +1,13 @@
+import Features from '../components/landing/Features'
+import Hero from '../components/landing/Hero'
+import StatsStrip from '../components/landing/StatsStrip'
+
 export default function LandingPage() {
-  return <h1 className="text-2xl font-bold">Inicio</h1>
+  return (
+    <>
+      <Hero />
+      <StatsStrip />
+      <Features />
+    </>
+  )
 }
