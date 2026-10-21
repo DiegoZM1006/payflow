@@ -5,6 +5,12 @@ const currencyFormatter = new Intl.NumberFormat('es-CO', {
   currency: 'COP',
   maximumFractionDigits: 0,
 })
+const compactCurrencyFormatter = new Intl.NumberFormat('es-CO', {
+  style: 'currency',
+  currency: 'COP',
+  notation: 'compact',
+  maximumFractionDigits: 0,
+})
 const numberFormatter = new Intl.NumberFormat('es-CO')
 const dateFormatter = new Intl.DateTimeFormat('es-CO', {
   dateStyle: 'medium',
@@ -22,6 +28,8 @@ const monthFormatter = new Intl.DateTimeFormat('es-CO', {
 })
 
 export const formatCOP = (value: number) => currencyFormatter.format(value)
+
+export const formatCompactCOP = (value: number) => compactCurrencyFormatter.format(value)
 
 export const formatNumber = (value: number) => numberFormatter.format(value)
 

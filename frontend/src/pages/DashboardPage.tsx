@@ -2,6 +2,7 @@ import { useState } from 'react'
 import DateRangeFilter from '../components/dashboard/DateRangeFilter'
 import KpiCards from '../components/dashboard/KpiCards'
 import type { DateRange } from '../types/api'
+import DashboardCharts from '../components/dashboard/DashboardCharts'
 
 export default function DashboardPage() {
   const [range, setRange] = useState<DateRange>({})
@@ -18,6 +19,7 @@ export default function DashboardPage() {
         <DateRangeFilter value={range} onChange={setRange} />
       </header>
       <KpiCards range={range} />
+      <DashboardCharts range={range} />
     </div>
   )
 }
