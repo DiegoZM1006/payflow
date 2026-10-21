@@ -37,8 +37,7 @@ export const formatPercent = (value: number) => `${value.toLocaleString('es-CO')
 
 export const formatDate = (isoDate: string) => dateFormatter.format(new Date(isoDate))
 
-export const formatDateTime = (isoDate: string) =>
-  dateTimeFormatter.format(new Date(isoDate))
+export const formatDateTime = (isoDate: string) => dateTimeFormatter.format(new Date(isoDate))
 
 export function formatMonth(month: string) {
   const [year, monthNumber] = month.split('-').map(Number)

@@ -1,4 +1,12 @@
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
 import { CHART_COLOR } from '../../constants/colors'
 import type { MonthlyMetric } from '../../types/api'
 import { formatCOP, formatCompactCOP, formatMonth } from '../../utils/format'

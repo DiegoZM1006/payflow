@@ -15,8 +15,7 @@ async function getMetric<T>(path: string, range: DateRange): Promise<T> {
 
 export const getSummary = (range: DateRange = {}) => getMetric<Summary>('summary', range)
 
-export const getMonthly = (range: DateRange = {}) =>
-  getMetric<MonthlyMetric[]>('monthly', range)
+export const getMonthly = (range: DateRange = {}) => getMetric<MonthlyMetric[]>('monthly', range)
 
 export const getByCategory = (range: DateRange = {}) =>
   getMetric<CategoryMetric[]>('by-category', range)
