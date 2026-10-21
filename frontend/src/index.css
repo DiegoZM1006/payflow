@@ -1,1 +1,75 @@
 @import 'tailwindcss';
+
+/* `dark:` utilities apply when an ancestor (the <html> element) has the `dark` class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Semantic color tokens: components use `bg-surface`, `text-fg`... and the values change per theme */
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+}
+
+:root {
+  color-scheme: light;
+  --page: var(--color-slate-50);
+  --surface: var(--color-white);
+  --surface-muted: var(--color-slate-100);
+  --line: var(--color-slate-200);
+  --line-strong: var(--color-slate-300);
+  --fg: var(--color-slate-900);
+  --fg-muted: var(--color-slate-600);
+  --fg-subtle: var(--color-slate-500);
+  --accent: var(--color-indigo-600);
+  --accent-soft: var(--color-indigo-50);
+}
+
+.dark {
+  /* Native controls (date pickers, selects, scrollbars) also switch to dark */
+  color-scheme: dark;
+  --page: var(--color-slate-950);
+  --surface: var(--color-slate-900);
+  --surface-muted: var(--color-slate-800);
+  --line: var(--color-slate-800);
+  --line-strong: var(--color-slate-700);
+  --fg: var(--color-slate-100);
+  --fg-muted: var(--color-slate-300);
+  --fg-subtle: var(--color-slate-400);
+  --accent: var(--color-indigo-400);
+  --accent-soft: --alpha(var(--color-indigo-500) / 15%);
+}
+
+/* Recharts draws SVG with hardcoded colors: CSS rules override those attributes */
+.recharts-cartesian-grid line {
+  stroke: var(--line);
+}
+
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-tick-line {
+  stroke: var(--line-strong);
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--fg-subtle);
+}
+
+.recharts-default-tooltip {
+  background-color: var(--surface) !important;
+  border-color: var(--line) !important;
+  color: var(--fg);
+}
+
+.recharts-rectangle.recharts-tooltip-cursor {
+  fill: var(--surface-muted);
+}
+
+.recharts-curve.recharts-tooltip-cursor {
+  stroke: var(--line-strong);
+}
