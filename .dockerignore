@@ -1,0 +1,9 @@
+# Build context for the backend image is the repository root
+.git
+.github
+**/.venv
+**/__pycache__
+**/*.sqlite3
+**/.env
+backend/staticfiles
+frontend
