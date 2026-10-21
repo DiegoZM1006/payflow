@@ -6,14 +6,14 @@ interface DateRangeFilterProps {
 }
 
 const inputClassName =
-  'rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500'
+  'rounded-md border border-line-strong bg-surface px-3 py-2 text-sm text-fg focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500'
 
 export default function DateRangeFilter({ value, onChange }: DateRangeFilterProps) {
   const hasRange = Boolean(value.date_from || value.date_to)
 
   return (
     <div className="flex flex-wrap items-end gap-3">
-      <label className="flex flex-col gap-1 text-sm text-slate-600">
+      <label className="flex flex-col gap-1 text-sm text-fg-muted">
         Desde
         <input
           type="date"
@@ -23,7 +23,7 @@ export default function DateRangeFilter({ value, onChange }: DateRangeFilterProp
           className={inputClassName}
         />
       </label>
-      <label className="flex flex-col gap-1 text-sm text-slate-600">
+      <label className="flex flex-col gap-1 text-sm text-fg-muted">
         Hasta
         <input
           type="date"
@@ -37,7 +37,7 @@ export default function DateRangeFilter({ value, onChange }: DateRangeFilterProp
         <button
           type="button"
           onClick={() => onChange({})}
-          className="rounded-md px-3 py-2 text-sm font-medium text-indigo-600 hover:bg-indigo-50"
+          className="rounded-md px-3 py-2 text-sm font-medium text-accent hover:bg-accent-soft"
         >
           Limpiar
         </button>

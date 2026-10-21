@@ -30,8 +30,8 @@ export default function ChartCard({
   }
 
   return (
-    <section className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-      <h2 className="font-semibold text-slate-900">{title}</h2>
+    <section className="rounded-xl bg-surface p-5 shadow-sm ring-1 ring-line">
+      <h2 className="font-semibold text-fg">{title}</h2>
       <div className="mt-4 h-72">{content}</div>
     </section>
   )

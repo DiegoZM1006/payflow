@@ -64,11 +64,11 @@ export default function TopCustomersTable({ range }: TopCustomersTableProps) {
   }
 
   return (
-    <section className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+    <section className="rounded-xl bg-surface p-5 shadow-sm ring-1 ring-line">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="font-semibold text-slate-900">Top clientes</h2>
-          <p className="text-sm text-slate-500">
+          <h2 className="font-semibold text-fg">Top clientes</h2>
+          <p className="text-sm text-fg-subtle">
             {formatNumber(filteredCustomers.length)} clientes · ordenados y paginados
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function TopCustomersTable({ range }: TopCustomersTableProps) {
           onChange={(event) => handleSearchChange(event.target.value)}
           placeholder="Buscar por nombre"
           aria-label="Buscar cliente por nombre"
-          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none sm:w-64"
+          className="w-full rounded-md border border-line-strong px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none sm:w-64"
         />
       </div>
 
@@ -94,7 +94,7 @@ export default function TopCustomersTable({ range }: TopCustomersTableProps) {
             <div className="overflow-x-auto">
               <table className="w-full min-w-140 text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 text-slate-500">
+                  <tr className="border-b border-line text-fg-subtle">
                     {columns.map((column) => {
                       const isSorted = sort.key === column.key
                       const SortIcon = !isSorted
@@ -118,7 +118,7 @@ export default function TopCustomersTable({ range }: TopCustomersTableProps) {
                           <button
                             type="button"
                             onClick={() => handleSort(column)}
-                            className="inline-flex items-center gap-1 hover:text-slate-900"
+                            className="inline-flex items-center gap-1 hover:text-fg"
                           >
                             {column.label}
                             <SortIcon aria-hidden="true" className="size-3.5" />
@@ -130,10 +130,10 @@ export default function TopCustomersTable({ range }: TopCustomersTableProps) {
                 </thead>
                 <tbody>
                   {pageItems.map((customer) => (
-                    <tr key={customer.customer_id} className="border-b border-slate-100">
+                    <tr key={customer.customer_id} className="border-b border-line">
                       <td className="py-2.5">
-                        <p className="font-medium text-slate-900">{customer.customer_name}</p>
-                        <p className="text-xs text-slate-500">{customer.customer_id}</p>
+                        <p className="font-medium text-fg">{customer.customer_name}</p>
+                        <p className="text-xs text-fg-subtle">{customer.customer_id}</p>
                       </td>
                       <td className="py-2.5 text-right tabular-nums">
                         {formatCOP(customer.approved_amount)}

@@ -18,7 +18,7 @@ export default function TransactionFiltersBar({
   return (
     <section
       aria-label="Filtros"
-      className="space-y-4 rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200"
+      className="space-y-4 rounded-xl bg-surface p-5 shadow-sm ring-1 ring-line"
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <SearchInput value={filters.search ?? ''} onChange={(search) => onChange({ search })} />
@@ -55,7 +55,7 @@ export default function TransactionFiltersBar({
         <button
           type="button"
           onClick={onClear}
-          className="rounded-md px-3 py-2 text-sm font-medium text-slate-600 ring-1 ring-slate-300 hover:bg-slate-50"
+          className="rounded-md px-3 py-2 text-sm font-medium text-fg-muted ring-1 ring-line-strong hover:bg-surface-muted"
         >
           Limpiar filtros
         </button>

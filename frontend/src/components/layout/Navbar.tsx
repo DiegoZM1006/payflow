@@ -7,9 +7,9 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="border-b border-slate-200 bg-white">
+    <header className="border-b border-line bg-surface">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link to="/" className="text-xl font-bold text-indigo-600">
+        <Link to="/" className="text-xl font-bold text-accent">
           PayFlow
         </Link>
         <ul className="flex gap-4 text-sm font-medium sm:gap-6">
@@ -18,7 +18,7 @@ export default function Navbar() {
               <NavLink
                 to={link.to}
                 className={({ isActive }) =>
-                  isActive ? 'text-indigo-600' : 'text-slate-600 hover:text-slate-900'
+                  isActive ? 'text-accent' : 'text-fg-muted hover:text-fg'
                 }
               >
                 {link.label}

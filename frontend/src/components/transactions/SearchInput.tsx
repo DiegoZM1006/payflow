@@ -23,14 +23,14 @@ export default function SearchInput({ value, onChange }: SearchInputProps) {
   }, [debouncedText, text, value, onChange])
 
   return (
-    <label className="flex flex-col gap-1 text-sm text-slate-600">
+    <label className="flex flex-col gap-1 text-sm text-fg-muted">
       Buscar
       <input
         type="search"
         value={text}
         onChange={(event) => setText(event.target.value)}
         placeholder="ID, cliente o comercio"
-        className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none"
+        className="rounded-md border border-line-strong bg-surface px-3 py-2 text-sm text-fg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none"
       />
     </label>
   )

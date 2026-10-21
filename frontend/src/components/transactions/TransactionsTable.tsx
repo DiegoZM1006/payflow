@@ -19,7 +19,7 @@ function SortButton({ label, isActive, isDescending, onClick }: SortButtonProps)
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex items-center gap-1 hover:text-slate-900"
+      className="inline-flex items-center gap-1 hover:text-fg"
     >
       {label}
       <Icon aria-hidden="true" className="size-3.5" />
@@ -58,7 +58,7 @@ export default function TransactionsTable({
     <div className="overflow-x-auto">
       <table className="w-full min-w-200 text-sm">
         <thead>
-          <tr className="border-b border-slate-200 text-left text-slate-500">
+          <tr className="border-b border-line text-left text-fg-subtle">
             <th scope="col" className="py-2 font-medium">
               ID
             </th>
@@ -97,7 +97,7 @@ export default function TransactionsTable({
             <tr
               key={transaction.transaction_id}
               onClick={() => onSelect(transaction.transaction_id)}
-              className="cursor-pointer border-b border-slate-100 hover:bg-slate-50"
+              className="cursor-pointer border-b border-line hover:bg-surface-muted"
             >
               <td className="py-2.5">
                 <button
@@ -106,7 +106,7 @@ export default function TransactionsTable({
                     event.stopPropagation()
                     onSelect(transaction.transaction_id)
                   }}
-                  className="font-medium text-indigo-600 hover:underline"
+                  className="font-medium text-accent hover:underline"
                 >
                   {transaction.transaction_id}
                 </button>
@@ -115,7 +115,7 @@ export default function TransactionsTable({
               <td className="py-2.5">{transaction.customer_name}</td>
               <td className="py-2.5">
                 <p>{transaction.merchant}</p>
-                <p className="text-xs text-slate-500">{transaction.category}</p>
+                <p className="text-xs text-fg-subtle">{transaction.category}</p>
               </td>
               <td className="py-2.5">{transaction.channel}</td>
               <td className="py-2.5 text-right whitespace-nowrap tabular-nums">
