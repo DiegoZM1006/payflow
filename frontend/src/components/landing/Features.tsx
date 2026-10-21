@@ -26,15 +26,15 @@ const features = [
 export default function Features() {
   return (
     <section className="py-16">
-      <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+      <h2 className="text-center text-2xl font-bold text-fg sm:text-3xl">
         ¿Qué puedes ver en el dashboard?
       </h2>
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {features.map(({ icon: Icon, title, description }) => (
-          <article key={title} className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-            <Icon aria-hidden="true" className="size-8 text-indigo-600" />
-            <h3 className="mt-4 font-semibold text-slate-900">{title}</h3>
-            <p className="mt-2 text-sm text-slate-600">{description}</p>
+          <article key={title} className="rounded-xl bg-surface p-6 shadow-sm ring-1 ring-line">
+            <Icon aria-hidden="true" className="size-8 text-accent" />
+            <h3 className="mt-4 font-semibold text-fg">{title}</h3>
+            <p className="mt-2 text-sm text-fg-muted">{description}</p>
           </article>
         ))}
       </div>

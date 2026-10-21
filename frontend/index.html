@@ -9,6 +9,15 @@
       name="description"
       content="Herramienta interna de PayFlow para analizar el volumen transaccional, las categorías, los canales y la tasa de aprobación."
     />
+    <script>
+      try {
+        const theme = localStorage.getItem('payflow-theme')
+        const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark')
+        }
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

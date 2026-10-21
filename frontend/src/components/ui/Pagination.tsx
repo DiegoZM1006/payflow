@@ -5,7 +5,7 @@ interface PaginationProps {
 }
 
 const buttonClassName =
-  'rounded-md px-3 py-1.5 text-sm font-medium text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40'
+  'rounded-md px-3 py-1.5 text-sm font-medium text-fg-muted ring-1 ring-line-strong hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-40'
 
 export default function Pagination({ page, totalPages, onPageChange }: PaginationProps) {
   return (
@@ -18,7 +18,7 @@ export default function Pagination({ page, totalPages, onPageChange }: Paginatio
       >
         Anterior
       </button>
-      <span className="text-sm text-slate-600">
+      <span className="text-sm text-fg-muted">
         Página {page} de {totalPages}
       </span>
       <button

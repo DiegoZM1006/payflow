@@ -29,7 +29,7 @@ export default function TransactionsPage() {
           <button
             type="button"
             onClick={() => updateFilters({ page: 1 })}
-            className="text-sm font-medium text-indigo-600 hover:underline"
+            className="text-sm font-medium text-accent hover:underline"
           >
             Ir a la primera página
           </button>
@@ -71,14 +71,14 @@ export default function TransactionsPage() {
     <div className="space-y-6">
       <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">Transacciones</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-2xl font-bold text-fg sm:text-3xl">Transacciones</h1>
+          <p className="mt-1 text-sm text-fg-subtle">
             Paginación en el servidor: cada cambio de página, filtro u orden pide datos nuevos.
           </p>
         </div>
         <a
           href={getExportUrl(filters)}
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+          className="hover:bg-accent-soft0 inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm"
         >
           <Download aria-hidden="true" className="size-4" />
           Exportar CSV
@@ -89,7 +89,7 @@ export default function TransactionsPage() {
 
       <section
         aria-label="Resultados"
-        className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200"
+        className="rounded-xl bg-surface p-5 shadow-sm ring-1 ring-line"
       >
         {renderResults()}
       </section>

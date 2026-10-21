@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router'
+import ThemeToggle from './ThemeToggle'
 
 const links = [
   { to: '/dashboard', label: 'Dashboard' },
@@ -7,25 +8,28 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="border-b border-slate-200 bg-white">
+    <header className="border-b border-line bg-surface">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link to="/" className="text-xl font-bold text-indigo-600">
+        <Link to="/" className="text-xl font-bold text-accent">
           PayFlow
         </Link>
-        <ul className="flex gap-4 text-sm font-medium sm:gap-6">
-          {links.map((link) => (
-            <li key={link.to}>
-              <NavLink
-                to={link.to}
-                className={({ isActive }) =>
-                  isActive ? 'text-indigo-600' : 'text-slate-600 hover:text-slate-900'
-                }
-              >
-                {link.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-2 sm:gap-4">
+          <ul className="flex gap-4 text-sm font-medium sm:gap-6">
+            {links.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  className={({ isActive }) =>
+                    isActive ? 'text-accent' : 'text-fg-muted hover:text-fg'
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   )

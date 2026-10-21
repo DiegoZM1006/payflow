@@ -21,16 +21,16 @@ export default function TransactionsFooter({
 }: TransactionsFooterProps) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex items-center gap-4 text-sm text-slate-600">
+      <div className="flex items-center gap-4 text-sm text-fg-muted">
         <span>
-          <strong className="text-slate-900">{formatNumber(count)}</strong> resultados
+          <strong className="text-fg">{formatNumber(count)}</strong> resultados
         </span>
         <label className="flex items-center gap-2">
           Mostrar
           <select
             value={pageSize}
             onChange={(event) => onPageSizeChange(Number(event.target.value))}
-            className="rounded-md border border-slate-300 bg-white px-2 py-1 text-sm"
+            className="rounded-md border border-line-strong bg-surface px-2 py-1 text-sm"
           >
             {PAGE_SIZES.map((size) => (
               <option key={size} value={size}>
