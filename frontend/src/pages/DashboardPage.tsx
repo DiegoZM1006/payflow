@@ -3,6 +3,7 @@ import DateRangeFilter from '../components/dashboard/DateRangeFilter'
 import KpiCards from '../components/dashboard/KpiCards'
 import type { DateRange } from '../types/api'
 import DashboardCharts from '../components/dashboard/DashboardCharts'
+import TopCustomersTable from '../components/dashboard/TopCustomersTable'
 
 export default function DashboardPage() {
   const [range, setRange] = useState<DateRange>({})
@@ -20,6 +21,7 @@ export default function DashboardPage() {
       </header>
       <KpiCards range={range} />
       <DashboardCharts range={range} />
+      <TopCustomersTable key={JSON.stringify(range)} range={range} />
     </div>
   )
 }
